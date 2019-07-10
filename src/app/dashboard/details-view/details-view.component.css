@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    color:#485e74;
+    line-height:1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+
+
+  .goBack{
+    background: rgb(86, 152, 163);
+    position: relative;
+    color: #fff;
+    outline: none;
+    cursor: pointer;
+    margin: 25px;
+    
+}
+.meeting-form{
+    margin: 25px;
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+    border-radius: 35px;
+}
+
+.meeting-form .heading{
+    background: #FFBD61;
+}
+.meeting-form .heading h3{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 20px;
+    text-decoration-line: underline;
+    text-decoration-color: #031b3b;
+    color:#000;
+    text-transform: uppercase;
+    
+}
+.meeting-form .wrapper{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 1em;
+    font-weight: 800;
+   
+}
+
+.meeting-form #delete{
+    display: block;
+}
+.meeting-form .wrapper{
+    background:#f9feff;
+}
+.meeting-form .wrapper form label{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.meeting-form .wrapper form input, .meeting-form .wrapper form select{
+    width:100%;
+    padding:1em;
+    border-radius: 100px;
+    border:1px solid #FFBD61;
+    outline: none;
+    font-size: 1rem;;
+    background: #fcfcfc;    
+}
+.meeting-form .wrapper form select{
+    height: 60px;
+}
+
+.meeting-form .wrapper form button{
+    width: 100%;
+    color: #000;
+    background: #FFBD61;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 0.35em;
+    border-radius: 1.6em;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.meeting-form .wrapper form button:hover{
+    background-color: coral;
+    transition: background-color 2s ease-out;
+
+}

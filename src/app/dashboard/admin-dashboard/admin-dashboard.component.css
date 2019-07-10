@@ -1,0 +1,40 @@
+root{
+    font-size: 16px;
+}
+
+
+#listUsers{
+    margin: 65px;
+    height: 80vh;
+    width: auto;
+    border: coral 3px solid;
+}
+
+h3{
+    padding: 25px;
+    background-color: #c4c4c4;
+    font-style: Arial,Helvetica,sans-serif;
+    display: flex;
+    width : 100%;
+    height: auto;
+    justify-content: center;
+    text-align: center;
+    border:3px solid coral;
+}
+
+
+#listUsers #userCard{
+    width: auto;
+    margin: 10px;
+    padding: 25px;
+    display: inline-block;
+    box-sizing: border-box;
+    border: coral 3px solid;
+    background: #95c9cf;
+    cursor: pointer;
+}
+
+tbody:hover{
+    cursor: pointer;
+    background: coral;
+}

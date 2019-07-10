@@ -1,0 +1,46 @@
+.create button{
+    margin-top: 25px;
+    border-radius: 5px solid coral;
+    width:50%;
+    padding:1em;
+    
+    line-height: 1.6rem;
+    border-radius: 100px;
+    background: #FFBD61;
+    border:1px solid #FFBD61;
+    outline: none;
+    font-size: 1rem;
+    text-transform: uppercase;  
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.create button:hover{
+    background-color: coral;
+    transition: background-color 2s ease-out;
+}
+
+.btn{
+    width: 50%;
+    color: #000;
+    background: #FFBD61;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 0.35em;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    box-sizing: border-box;
+    white-space: normal;
+
+}
+
+.create{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.wrap-calendar{
+    border:#FFBD61 3px solid;
+}

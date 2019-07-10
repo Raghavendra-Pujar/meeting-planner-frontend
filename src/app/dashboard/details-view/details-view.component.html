@@ -1,0 +1,55 @@
+<app-navigation [fullName]=fullName [dashboard]="dashboard"></app-navigation>
+
+<div class="container">
+  <div class="meeting-form">
+    <div class="heading">
+        <h3>Create Meeting</h3>
+    </div>
+    <button class = "btn btn-md goBack" (click)="goBack()">Go Back</button>
+    <div class="wrapper">
+    <form action="">
+      <p>
+        <label for="Title" >Title</label>
+        <input type="text" [(ngModel)] = "title" name="title" placeholder="Title " required>
+      </p>
+      <p>
+        <label for="Purpose" >Purpose</label>
+        <input type="text"[(ngModel)] = "purpose" name="purpose" placeholder="Purpose" required>
+      </p>
+      <p>
+          <label for="Start">Start Time</label>
+          <input [owlDateTime]="dt2"[owlDateTimeTrigger]="dt2"  placeholder="Starting Time" [(ngModel)]="start" name="end" required>
+        
+          <owl-date-time [pickerMode]="'dialog'" #dt2></owl-date-time>
+      </p>
+      <p>
+          <label for="End">End Time</label>
+          <input [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="Ending Time" [(ngModel)] = "end" name="end" required> 
+          
+          <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
+      </p>
+
+      <p>
+          <label for="Location" >Location</label>
+          <input type="text" [(ngModel)] = "location" name="location" placeholder="Location" required>
+      </p>
+
+      <p>
+        <label for="Priority" >Priority</label>
+        <select class="form-control" type="text" [(ngModel)] = "priority" name="priority" required>
+        <option [value] = 1>1-Low</option>
+        <option [value] = 2>2-Medium</option>  
+        <option [value] = 3>3-High</option>
+        </select>
+      </p>
+
+     
+      <p>
+        <button type="submit" (click) = "createMeeting()"><i class="fa fa-plus"></i>Schedule</button>
+    </p>
+
+
+    </form>
+  </div>
+</div>
+</div>

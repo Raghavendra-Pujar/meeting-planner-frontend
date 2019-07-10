@@ -1,0 +1,17 @@
+.navbar{
+    background: #ffbd61;
+        
+}
+
+a{
+    cursor: pointer;
+}
+
+.nav-item .dropdown,.navbar-nav .dropdown-item, .navbar-nav .dropdown-menu{
+    width: 250px;   
+}
+.navbar--nav .dropdown-menu{
+
+    color:rgb(68, 11, 143);
+    background: #ffbd61;
+}

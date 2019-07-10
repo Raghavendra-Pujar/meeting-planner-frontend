@@ -1,0 +1,135 @@
+<app-navigation [fullName]="fullName" [dashboard] ="dashboard"></app-navigation>
+<div class="create">
+  <button [hidden]= "notAdmin" [routerLink] = "['/details',userId]"><i class="fa fa-plus" aria-hidden="true"></i>
+    Schedule a Meeting
+    </button>
+  </div>
+<hr>
+
+<div class="container">
+    <div class="wrap-calendar">
+  <div class=" row text-center ">
+    <div class="col-md-3">
+      <div class="btn-group">
+        <button
+          class="btn"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="activeDayIsOpen = false"
+          (click)="disablePrevious(viewDate)"
+          [disabled]="previous"
+          >
+          Previous
+        </button>
+        <div
+          class="btn"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+          (click)="enableBoth()">
+         
+          Today
+        </div>
+        <button
+          class="btn"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="activeDayIsOpen = false"
+          (click)="disableNext(viewDate)"
+          [disabled]="next"
+          >
+          Next
+        </button>
+      </div>
+    </div>
+  <div class="offset-md-1 col-md-3">  
+    <h2 class="calendar-month">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h2>
+  </div>
+  
+  <div class="offset-md-2 col-md-3">
+  <div class="btn-group">
+    <button class="btn" (click)="view = 'month'"  [class.active]="view === 'month'">
+      Month
+    </button>
+    <button class="btn" (click)="view = 'week'"  [class.active]="view === 'week'">
+      Week
+    </button>
+    <button class="btn"(click)="view = 'day'"  [class.active]="view === 'day'">
+      Day
+    </button>
+  </div>
+  </div>
+  </div>
+  
+  
+  
+  <div [ngSwitch]="view">
+    <mwl-calendar-month-view
+      *ngSwitchCase="'month'"
+      [viewDate]="viewDate"
+      [events]="events"
+      [refresh]="refresh"
+      (dayClicked)="dayClicked($event.day)"
+      
+    >
+    </mwl-calendar-month-view>
+    <mwl-calendar-week-view
+      *ngSwitchCase="'week'"
+      [viewDate]="viewDate"
+      [refresh]="refresh"
+      [events]="events"
+    >
+    </mwl-calendar-week-view>
+    <mwl-calendar-day-view
+      *ngSwitchCase="'day'"
+      [viewDate]="viewDate"
+      [refresh]="refresh"
+      [events]="events"
+      (hourSegmentClicked)="hourSegmentClicked($event.date)"
+    >
+    </mwl-calendar-day-view>
+  </div>
+  </div>
+  
+  </div>
+  
+  
+  
+  <!--Modal to open events-->
+  
+  
+  
+    <!-- Button trigger modal -->
+  <button hidden id="modal-trigger"type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title calendar-day" id="exampleModalLongTitle">
+
+              {{selectedDateTime | date }}
+
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <mwl-calendar-day-view [viewDate]="selectedDateTime"
+          [events]="events"
+          (hourSegmentClicked)="hourSegmentClicked($event.date)"
+          (eventClicked)="eventClicked($event)">
+          </mwl-calendar-day-view>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,102 @@
+<app-navigation [fullName]="loggedin" [dashboard] ="dashboard"></app-navigation>
+
+
+
+<div class="container" *ngIf="editFlag;else notEdit">
+  <div class="meeting-form" *ngIf="meeting">
+      <div class="heading">
+      
+        <h3>Update Meeting</h3>
+     
+    </div>
+      
+    <button class = "btn btn-md goBack" (click)="goBack()">Go Back</button>
+    <div class="wrapper">
+       
+    <form action="">
+      
+      <p class="form-group">
+        <label for="Title" class="control-label" >Title</label>
+        <input type="text" class="form-control" [(ngModel)] = "meeting.title" name="title">
+      </p>
+      <p class="form-group"> 
+        <label for="Purpose" class="control-label" >Purpose</label>
+        <input type="text"class="form-control" [(ngModel)] = "meeting.purpose" name="purpose">
+      </p>
+      <p class="form-group">
+          <label for="Start" class="control-label" >Start Time</label>
+          <input class="form-control" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2" placeholder="Date Time" [(ngModel)]="start" name="start">
+          
+          <owl-date-time [pickerMode]="'dialog'" #dt2></owl-date-time>
+      </p>
+      <p class="form-group">
+          <label for="End" class="control-label" >End Time</label>
+          <input class="form-control" [owlDateTime]="dt3" [owlDateTimeTrigger]="dt3" placeholder="Date Time" [(ngModel)] = "end" name="end">
+         
+          <owl-date-time [pickerMode]="'dialog'" #dt3></owl-date-time>
+      </p>
+
+      <p class="form-group">
+          <label for="Location" class="control-label" >Location</label>
+          <input type="text" class="form-control" [(ngModel)] = "meeting.location" name="location">
+      </p>
+
+      <p>
+          <label for="Priority" >Priority</label>
+          <select class="form-control" type="text" [(ngModel)] = "meeting.priority" name="priority" required>
+          <option [value] = 1>1-Low</option>
+          <option [value] = 2>2-Medium</option>  
+          <option [value] = 3>3-High</option>
+          </select>
+        </p>
+
+      <p class="form-group">
+          <label for="Assigned By" class="control-label" >Assigned By</label>
+          <input disabled = "true" class="form-control"type="text" [(ngModel)] = "fullName" name="fullName">
+      </p>
+     
+      <p>
+        <button type="submit" (click) = "editMeeting()">
+            <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+          Update Details
+        </button>
+      </p>
+      <p>
+          <button (click) = "deleteClick()"><i class="far fa-trash-alt"></i>Delete</button> 
+      </p>
+
+      
+  
+
+
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+<ng-template #notEdit>
+<div class="container" >
+    <button class = "btn btn-md goBack" (click)="goBack()">Go Back</button>
+<div class="card ">
+  <div class="card-body" *ngIf="meeting">
+    <div class="card-header">
+    <h3  >{{meeting.title}}</h3>
+    <p >{{meeting.purpose }}</p>
+  </div>
+  <div class="card-header">
+    <strong>Starts at </strong>:<p>{{start}}</p>
+    <strong>Ends at </strong>:<p>{{end}}</p>
+    <strong>Assigned By</strong>: <p>{{meeting.assigner.firstName}} {{meeting.assigner.lastName}}</p>
+    <strong>Location </strong>:<p>{{meeting.location}}</p>
+    <strong>Priority:</strong> {{meeting.priority}}
+  </div>
+  </div>
+</div>
+
+</div>
+</ng-template>

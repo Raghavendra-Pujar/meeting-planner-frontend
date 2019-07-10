@@ -1,0 +1,74 @@
+
+<div class="body">
+<div class="container">
+    <h1 class="brand"><span>Meeting</span> Planner</h1>
+  <div class="wrapper">
+
+    <div class="sidebar">
+        <ul>
+            <li><button [routerLink] = "['/login']">Sign IN</button></li>
+            <li><button [routerLink] = "['/forgot-password']">Forgot Password </button> </li>
+        </ul>
+    </div>
+
+
+    <div class="signup-form">
+      <h3>Register to continue</h3>
+      <form action="">
+        <p>
+        <label for="firstName">FirstName</label>
+        <input type="text" [(ngModel)] ="firstName" name="firstName">
+        </p>
+
+        <p>
+        <label for="LastName">LastName</label>
+        <input type="text" name="lastname"  [(ngModel)] = "lastName">
+        </p>
+
+        <p>
+            <label for="UserName">UserName</label>
+            <input type="text" name="userName"  [(ngModel)]="userName">
+        </p>
+
+        <p>
+        <label for="email">Email</label>
+        <input type="email" name="email"  [(ngModel)]="email">
+        </p>
+
+        <p>
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="password" name="password">
+        </p>
+
+        <p>
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" [(ngModel)]="confirmPassword" name="confirmPassword">
+        </p>
+
+       
+
+
+        <p >
+        <label for="countryCodes">Country Code</label>
+          <select class="form-control" name="selectedCode" [(ngModel)]= "selectedCode" >
+              <option value="" selected disabled >Choose your Country Code</option>
+          <option [value]="list.code" name="code"*ngFor="let list of countryCodes">  {{list.name}}-{{list.nameCode}} {{list.code}}</option>
+          </select>
+        </p>
+
+
+        <p>
+            <label for="mobileNumber">Mobile Number </label>
+            <input type="number" [(ngModel)]="mobileNumber" name="mobileNumber">
+         </p>
+
+
+        <p class="full">
+            <button type="submit" (click) = "register()">Register</button>
+        </p>
+
+      </form>
+    </div>
+  </div>
+</div>
+</div>

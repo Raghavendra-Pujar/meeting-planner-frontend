@@ -1,0 +1,46 @@
+
+
+<app-navigation [fullName]="fullName" [dashboard]="admin"></app-navigation>
+
+
+
+<section id="listUsers">
+  <h3>List of Users</h3>
+  <div  *ngIf = "usersList && usersList.length>0">
+  
+      
+      
+    
+
+
+
+
+  <table class="table table-hover .table-striped table-responsive-sm" >
+    <thead class="thead-dark">
+      <tr>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>PhoneNumber</th>
+      </tr>
+    </thead>
+    <tbody  *ngFor = "let users of usersList" [routerLink] = "['/user',users.userId]">
+      <tr>
+        <td>{{users.firstName}} {{users.lastName}}</td>
+        <td>{{users.email}}</td>
+        <td>{{users.countryCode}}-{{users.mobileNumber}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+<div class="row" *ngIf="moreItems">
+    <div class="col-12 mb-3 mt-2">
+      <button class="btn btn-secondary" type="button" (click)='listMoreUsers()' value="Load More"> View More</button>
+    </div>
+  </div>
+
+
+</section>
+

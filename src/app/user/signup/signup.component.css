@@ -1,0 +1,133 @@
+*{
+    box-sizing: border-box;
+}
+
+.body{
+    color:#485e74;
+    line-height:1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding:1em;
+    top:0;
+    bottom: 0;
+    }
+
+.container{
+    max-width:1170px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:1em;
+  }
+
+  .brand{
+    text-align: center;
+  }
+
+  .brand span{
+      color: coral;
+  }
+
+  .wrapper{
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7);
+  }
+  
+  .wrapper > *{
+    padding: 1em;
+  }
+
+  .sidebar{
+      background: #c9e6ff;
+  }
+
+  .sidebar ul{
+      text-decoration: none;
+      outline: none;
+      list-style: none;
+  }
+
+
+  .sidebar ul li button{
+    width:100%;
+    padding:1em;
+    margin-bottom: 3rem;
+    line-height: 1.6rem;
+    border-radius: 100px;
+    background: #FFBD61;
+    border:1px solid #FFBD61;
+    outline: none;
+    font-size: 1rem;
+    text-transform: uppercase;  
+    cursor: pointer;
+    font-weight: 800;
+  }
+
+  .sidebar ul li button:hover{
+      background: coral;
+      transition: background-color 2s ease-out;
+  }
+  .signup-form h3{
+      color: coral;
+      text-transform: uppercase;
+  }
+
+  .signup-form form{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap:20px;
+  }
+
+  .signup-form label{
+      display: block;
+  }
+
+  .signup-form form p{
+      margin: 0;
+  }
+
+  .signup-form form .full{
+    grid-column: 1 / 3;
+  }
+  .signup-form form button, .signup-form form input,.signup-form form select{
+    width:100%;
+    padding:1em;
+    border:1px solid #FFBD61;
+    border-radius: 100px;
+    outline: none;
+  }
+
+  .signup-form form select{
+    height: 60px;
+  }
+  .signup-form form input,.signup-form form select:focus{
+      background: #fcfcfc;
+  }
+
+
+  .signup-form form button{
+    background:#FFBD61;
+    border:0;
+    text-transform: uppercase;
+    font-size: 1rem;  
+    cursor: pointer;
+    font-weight: 800;
+  }
+  
+  .signup-form form button:hover{
+    background: coral;
+    outline:0;
+    cursor: pointer;
+    transition: background-color 2s ease-out;
+  }
+  @media(min-width:700px){
+    .wrapper{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+    }
+  
+    .wrapper > *{
+      padding:2em;
+    }
+  
+    .sidebar li, .brand{
+      text-align: left;
+    }
+  }
